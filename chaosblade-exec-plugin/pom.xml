@@ -36,6 +36,10 @@
         <module>chaosblade-exec-plugin-druid</module>
         <module>chaosblade-exec-plugin-http</module>
         <module>chaosblade-exec-plugin-jedis</module>
+        <module>chaosblade-exec-plugin-jimdb</module>
+        <module>chaosblade-exec-plugin-jmq2</module>
+        <module>chaosblade-exec-plugin-jmq4</module>
+        <module>chaosblade-exec-plugin-jsf</module>
         <module>chaosblade-exec-plugin-rocketmq</module>
         <module>chaosblade-exec-plugin-tars</module>
         <module>chaosblade-exec-plugin-rabbitmq</module>

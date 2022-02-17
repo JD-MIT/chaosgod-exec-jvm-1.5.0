@@ -131,6 +131,28 @@ public class ReflectUtil {
         return getMethod(clazz, methodName, argsClass);
     }
 
+    public static void setFieldValue(Object obj, String fieldName,Object val , boolean throwException) throws Exception {
+        Field field = null;
+        try {
+            try {
+                if (obj == null) {
+                    return;
+                }
+                field = obj.getClass().getField(fieldName);
+                field.setAccessible(true);
+                field.set(obj,val);
+            } catch (Exception e) {
+                field = obj.getClass().getDeclaredField(fieldName);
+                field.setAccessible(true);
+                field.set(obj,val);
+            }
+        } catch (Exception e) {
+            if (throwException) {
+                throw e;
+            }
+        }
+    }
+
     /**
      * Get method by name and descriptor
      *
