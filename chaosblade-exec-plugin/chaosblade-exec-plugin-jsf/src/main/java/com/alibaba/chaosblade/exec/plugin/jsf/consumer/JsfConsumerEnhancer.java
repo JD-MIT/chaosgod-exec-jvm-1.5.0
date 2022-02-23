@@ -49,13 +49,13 @@ public class JsfConsumerEnhancer extends JsfEnhancer {
                 try {
                     timeOutExceptionClass = classLoader.loadClass(exceptionClassName);
                     Class[] paramTypes = {String.class};
-                    Object[] params = {"diablo-judge-jsf-TimeoutException,timeout=" + timeoutInMillis};
+                    Object[] params = {"origin-chaos-found-jsf-TimeoutException,timeout=" + timeoutInMillis};
                     Constructor con = timeOutExceptionClass.getConstructor(paramTypes);
                     return (Exception) con.newInstance(params);
                 } catch (ClassNotFoundException e) {
-                    LOGGER.error("diablo-jsf", "Can not find " + exceptionClassName, e);
+                    LOGGER.error("origin-chaos-jsf", "Can not find " + exceptionClassName, e);
                 } catch (Exception e) {
-                    LOGGER.error("diablo-jsf", "Can not generate " + exceptionClassName, e);
+                    LOGGER.error("origin-chaos-jsf", "Can not generate " + exceptionClassName, e);
                 }
                 return new RuntimeException(JsfConstant.TIMEOUT_EXCEPTION_MSG);
             }
