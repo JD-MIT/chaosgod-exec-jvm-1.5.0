@@ -19,7 +19,7 @@ package com.alibaba.chaosblade.exec.plugin.jimdb;
 import com.alibaba.chaosblade.exec.common.model.matcher.BasePredicateMatcherSpec;
 
 /**
- * @author guoping.yao <a href="mailto:bryan880901@qq.com">
+ * @author renguangyin@jd.com
  */
 public class JimDbKeyMatcherSpec extends BasePredicateMatcherSpec {
     @Override

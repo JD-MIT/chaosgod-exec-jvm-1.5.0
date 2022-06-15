@@ -30,16 +30,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author guoping.yao <a href="mailto:bryan880901@qq.com">
+ * @author renguangyin@jd.com
  */
 public class JimDbModelSpec extends FrameworkModelSpec implements PreDestroyInjectionModelHandler {
 
     @Override
     protected List<MatcherSpec> createNewMatcherSpecs() {
-        ArrayList<MatcherSpec> matcherSpecs = new ArrayList<MatcherSpec>();
-      //  matcherSpecs.add(new JedisHostMatcherSpec());
-      //  matcherSpecs.add(new JedisPortMatcherSpec());
-      //  matcherSpecs.add(new JedisDatabaseMatcherSpec());
+        ArrayList<MatcherSpec> matcherSpecs = new ArrayList<MatcherSpec>(2);
         matcherSpecs.add(new JimDbCmdTypeMatcherSpec());
         matcherSpecs.add(new JimDbKeyMatcherSpec());
         return matcherSpecs;

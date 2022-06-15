@@ -12,8 +12,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 3:45 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq4ConsumerEnhancer extends BeforeEnhancer implements Jmq4Constant {
 

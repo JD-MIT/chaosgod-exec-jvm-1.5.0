@@ -20,7 +20,7 @@ import com.alibaba.chaosblade.exec.common.model.matcher.BasePredicateMatcherSpec
 import com.alibaba.chaosblade.exec.plugin.jsf.JsfConstant;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class ProviderMatcherSpec extends BasePredicateMatcherSpec {
 
@@ -31,7 +31,7 @@ public class ProviderMatcherSpec extends BasePredicateMatcherSpec {
 
     @Override
     public String getDesc() {
-        return "To tag provider experiment";
+        return "jsf provider experiment";
     }
 
     @Override

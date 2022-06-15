@@ -35,10 +35,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class JsfModelSpec extends FrameworkModelSpec implements PreCreateInjectionModelHandler,
-    PreDestroyInjectionModelHandler {
+        PreDestroyInjectionModelHandler {
 
     public JsfModelSpec() {
         super();
@@ -92,7 +92,7 @@ public class JsfModelSpec extends FrameworkModelSpec implements PreCreateInjecti
             ActionSpec actionSpec = this.getActionSpec(model.getActionName());
             ActionExecutor actionExecutor = actionSpec.getActionExecutor();
             if (actionExecutor instanceof JsfThreadPoolFullExecutor) {
-                JsfThreadPoolFullExecutor threadPoolFullExecutor = (JsfThreadPoolFullExecutor)actionExecutor;
+                JsfThreadPoolFullExecutor threadPoolFullExecutor = (JsfThreadPoolFullExecutor) actionExecutor;
                 threadPoolFullExecutor.setExpReceived(true);
             } else {
                 throw new ExperimentException("actionExecutor is not instance of JsfThreadPoolFullExecutor");
@@ -106,7 +106,7 @@ public class JsfModelSpec extends FrameworkModelSpec implements PreCreateInjecti
             ActionSpec actionSpec = this.getActionSpec(model.getActionName());
             ActionExecutor actionExecutor = actionSpec.getActionExecutor();
             if (actionExecutor instanceof JsfThreadPoolFullExecutor) {
-                JsfThreadPoolFullExecutor threadPoolFullExecutor = (JsfThreadPoolFullExecutor)actionExecutor;
+                JsfThreadPoolFullExecutor threadPoolFullExecutor = (JsfThreadPoolFullExecutor) actionExecutor;
                 threadPoolFullExecutor.revoke();
             } else {
                 throw new ExperimentException("actionExecutor is not instance of JsfThreadPoolFullExecutor");
@@ -116,7 +116,7 @@ public class JsfModelSpec extends FrameworkModelSpec implements PreCreateInjecti
 
     private void addThreadPoolFullActionSpec() {
         ThreadPoolFullActionSpec threadPoolFullActionSpec = new ThreadPoolFullActionSpec(
-            JsfThreadPoolFullExecutor.INSTANCE);
+                JsfThreadPoolFullExecutor.INSTANCE);
         addActionSpec(threadPoolFullActionSpec);
         // the thread pool full experiment applies to provider
         addMatcherDefToAllActions(new ProviderMatcherSpec());

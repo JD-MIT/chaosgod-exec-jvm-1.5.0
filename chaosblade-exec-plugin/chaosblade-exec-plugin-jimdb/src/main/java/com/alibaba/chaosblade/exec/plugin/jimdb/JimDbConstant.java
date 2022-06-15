@@ -16,20 +16,14 @@
 
 package com.alibaba.chaosblade.exec.plugin.jimdb;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
- * @author guoping.yao <a href="mailto:bryan880901@qq.com">
- *
+ * @author renguangyin@jd.com
  */
 public interface JimDbConstant {
 
     String TARGET_NAME = "jimdb";
 
-    String HOST_MATCHER_NAME = "host";
-    String DATABASE_INDEX_MATCHER_NAME = "database";
-    String PORT_MATCHER_NAME = "port";
     String KEY_MATCHER_NAME = "key";
+
     String COMMAND_TYPE_MATCHER_NAME = "cmd";
 }

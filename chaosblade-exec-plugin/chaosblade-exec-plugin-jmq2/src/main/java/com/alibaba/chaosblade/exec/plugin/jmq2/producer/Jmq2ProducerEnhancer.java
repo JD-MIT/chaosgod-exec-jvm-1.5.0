@@ -12,8 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.Method;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 4:36 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq2ProducerEnhancer extends BeforeEnhancer implements Jmq2Constant {
 

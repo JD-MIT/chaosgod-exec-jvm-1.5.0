@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 2:36 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq2ModelSpec extends FrameworkModelSpec implements Jmq2Constant {
 
@@ -35,7 +34,7 @@ public class Jmq2ModelSpec extends FrameworkModelSpec implements Jmq2Constant {
 
     @Override
     public String getShortDesc() {
-        return "jmq2 experiment";
+        return getTarget() + " experiment";
     }
 
     @Override

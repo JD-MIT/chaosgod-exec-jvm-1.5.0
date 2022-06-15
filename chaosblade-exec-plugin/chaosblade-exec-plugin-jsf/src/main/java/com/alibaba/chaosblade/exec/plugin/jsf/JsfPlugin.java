@@ -21,13 +21,7 @@ import com.alibaba.chaosblade.exec.common.model.ModelSpec;
 import com.alibaba.chaosblade.exec.plugin.jsf.model.JsfModelSpec;
 
 /**
- * @author BoYuan Han
- * ./blade create jsf throwCustomException
- * --exception java.lang.NullPointerException
- * --service com.example.demo.HelloService
- * --methodname hello
- * --consumer
- * --process demo
+ * @author renguangyin@jd.com
  */
 public abstract class JsfPlugin implements Plugin {
 

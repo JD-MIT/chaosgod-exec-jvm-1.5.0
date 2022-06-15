@@ -8,14 +8,12 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class JsfThreadPoolFullExecutor extends WaitingTriggerThreadPoolFullExecutor {
 
     public static final JsfThreadPoolFullExecutor INSTANCE = new JsfThreadPoolFullExecutor();
-
     private static final Logger LOGGER = LoggerFactory.getLogger(JsfThreadPoolFullExecutor.class);
-
     private volatile Object wrappedChannelHandler;
 
 
@@ -26,13 +24,13 @@ public class JsfThreadPoolFullExecutor extends WaitingTriggerThreadPoolFullExecu
         }
         try {
             Object executorService = ReflectUtil.invokeMethod(wrappedChannelHandler, "getBizThreadPool",
-                new Object[0], true);
+                    new Object[0], true);
             if (executorService == null) {
                 LOGGER.warn("can't get executor service by getBizThreadPool method");
                 return null;
             }
-            if (ThreadPoolExecutor.class.isInstance(executorService)) {
-                return (ThreadPoolExecutor)executorService;
+            if (executorService instanceof ThreadPoolExecutor) {
+                return (ThreadPoolExecutor) executorService;
             }
         } catch (Exception e) {
             LOGGER.warn("invoke getBizThreadPool method of WrappedChannelHandler exception", e);
@@ -42,14 +40,12 @@ public class JsfThreadPoolFullExecutor extends WaitingTriggerThreadPoolFullExecu
 
     /**
      * Set wrappedChannelHandler for getting threadPoolExecutor object.
-     *
-     * @param wrappedChannelHandler
      */
     public void setWrappedChannelHandler(Object wrappedChannelHandler) {
         if (isExpReceived() && this.wrappedChannelHandler == null) {
             try {
-                 this.wrappedChannelHandler = wrappedChannelHandler;
-                 triggerThreadPoolFull();
+                this.wrappedChannelHandler = wrappedChannelHandler;
+                triggerThreadPoolFull();
             } catch (Exception e) {
                 LOGGER.warn("set WrappedChannelHandler exception", e);
             }

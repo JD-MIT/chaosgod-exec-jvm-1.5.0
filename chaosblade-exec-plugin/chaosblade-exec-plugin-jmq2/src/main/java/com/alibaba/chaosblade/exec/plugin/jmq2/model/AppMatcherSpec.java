@@ -4,8 +4,7 @@ import com.alibaba.chaosblade.exec.common.model.matcher.BasePredicateMatcherSpec
 import com.alibaba.chaosblade.exec.plugin.jmq2.Jmq2Constant;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 2:50 下午
+ * @author renguangyin@jd.com
  */
 public class AppMatcherSpec extends BasePredicateMatcherSpec implements Jmq2Constant {
     @Override
@@ -15,7 +14,7 @@ public class AppMatcherSpec extends BasePredicateMatcherSpec implements Jmq2Cons
 
     @Override
     public String getDesc() {
-        return "";
+        return getName();
     }
 
     @Override

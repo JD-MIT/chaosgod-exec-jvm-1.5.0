@@ -26,7 +26,7 @@ import java.lang.reflect.Method;
 
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class JsfProviderEnhancer extends JsfEnhancer {
 

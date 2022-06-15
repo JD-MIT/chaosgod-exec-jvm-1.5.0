@@ -9,8 +9,7 @@ import com.alibaba.chaosblade.exec.common.aop.matcher.method.OrMethodMatcher;
 import com.alibaba.chaosblade.exec.plugin.jmq2.Jmq2Constant;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 3:35 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq2ProducerPointCut implements PointCut, Jmq2Constant {
 

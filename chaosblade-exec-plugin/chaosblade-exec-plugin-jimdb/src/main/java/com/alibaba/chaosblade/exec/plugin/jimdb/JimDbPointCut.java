@@ -23,11 +23,10 @@ import com.alibaba.chaosblade.exec.common.aop.matcher.clazz.OrClassMatcher;
 import com.alibaba.chaosblade.exec.common.aop.matcher.method.*;
 
 /**
- * @author guoping.yao <a href="mailto:bryan880901@qq.com">
+ * @author renguangyin@jd.com
  */
 public class JimDbPointCut implements PointCut {
 
-//    private static final String JEDIS_CONNECTION = "redis.clients.jedis.Protocol";
     private static final String JEDIS_CONNECTION_1 = "com.jd.jim.cli.redis.jedis.Protocol";
     private static final String JEDIS_CONNECTION_2 = "com.jd.jim.cli.protocol.JimCommandBuilder";
 

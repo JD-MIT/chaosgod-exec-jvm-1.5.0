@@ -5,8 +5,7 @@ import com.alibaba.chaosblade.exec.common.model.ModelSpec;
 import com.alibaba.chaosblade.exec.plugin.jmq4.model.Jmq4ModelSpec;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 2:28 下午
+ * @author renguangyin@jd.com
  */
 public abstract class Jmq4Plugin implements Plugin, Jmq4Constant {
 

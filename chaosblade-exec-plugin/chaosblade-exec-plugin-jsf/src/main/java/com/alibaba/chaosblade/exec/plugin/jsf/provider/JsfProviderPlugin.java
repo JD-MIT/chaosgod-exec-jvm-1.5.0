@@ -21,7 +21,7 @@ import com.alibaba.chaosblade.exec.common.aop.PointCut;
 import com.alibaba.chaosblade.exec.plugin.jsf.JsfPlugin;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class JsfProviderPlugin extends JsfPlugin {
 

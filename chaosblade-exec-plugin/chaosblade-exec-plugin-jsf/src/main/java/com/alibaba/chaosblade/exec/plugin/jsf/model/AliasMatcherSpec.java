@@ -20,7 +20,7 @@ import com.alibaba.chaosblade.exec.common.model.matcher.BasePredicateMatcherSpec
 import com.alibaba.chaosblade.exec.plugin.jsf.JsfConstant;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class AliasMatcherSpec extends BasePredicateMatcherSpec {
 
@@ -31,7 +31,7 @@ public class AliasMatcherSpec extends BasePredicateMatcherSpec {
 
     @Override
     public String getDesc() {
-        return "The jsf alias";
+        return "jsf service alias";
     }
 
     @Override

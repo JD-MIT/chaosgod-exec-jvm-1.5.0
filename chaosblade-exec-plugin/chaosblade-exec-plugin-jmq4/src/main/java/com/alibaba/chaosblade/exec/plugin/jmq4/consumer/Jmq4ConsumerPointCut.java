@@ -8,8 +8,7 @@ import com.alibaba.chaosblade.exec.common.aop.matcher.method.NameMethodMatcher;
 import com.alibaba.chaosblade.exec.plugin.jmq4.Jmq4Constant;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 2:59 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq4ConsumerPointCut implements PointCut, Jmq4Constant {
 

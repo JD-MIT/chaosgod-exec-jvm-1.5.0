@@ -5,8 +5,7 @@ import com.alibaba.chaosblade.exec.common.aop.PointCut;
 import com.alibaba.chaosblade.exec.plugin.jmq4.Jmq4Plugin;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 3:15 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq4ProducerPlugin extends Jmq4Plugin {
 

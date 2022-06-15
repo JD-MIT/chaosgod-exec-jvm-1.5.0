@@ -23,7 +23,7 @@ import com.alibaba.chaosblade.exec.common.aop.matcher.clazz.OrClassMatcher;
 import com.alibaba.chaosblade.exec.common.aop.matcher.method.*;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class JsfConsumerPointCut implements PointCut {
 
@@ -39,7 +39,7 @@ public class JsfConsumerPointCut implements PointCut {
     @Override
     public MethodMatcher getMethodMatcher() {
         AndMethodMatcher methodMatcher = new AndMethodMatcher();
-        ParameterMethodMatcher parameterMethodMatcher = new ParameterMethodMatcher(new String[] {
+        ParameterMethodMatcher parameterMethodMatcher = new ParameterMethodMatcher(new String[]{
                 "com.jd.jsf.gd.msg.RequestMessage"}, 1,
                 ParameterMethodMatcher.EQUAL);
         methodMatcher.and(new NameMethodMatcher("invoke")).and(parameterMethodMatcher);

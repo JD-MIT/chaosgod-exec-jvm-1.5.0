@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author guoping.yao <a href="mailto:bryan880901@qq.com">
+ * @author renguangyin@jd.com
  */
 public class JimDbEnhancer extends BeforeEnhancer {
 
@@ -46,8 +46,8 @@ public class JimDbEnhancer extends BeforeEnhancer {
     @Override
     public EnhancerModel doBeforeAdvice(ClassLoader classLoader, String className, Object object,
                                         Method method, Object[] methodArguments)
-        throws Exception {
-        if (className.equals("com.jd.jim.cli.cache.MultiLevelLocalCache")){
+            throws Exception {
+        if (className.equals("com.jd.jim.cli.cache.MultiLevelLocalCache")) {
             JimDbModelSpec.loseCache(object);
             return null;
         }
@@ -56,36 +56,34 @@ public class JimDbEnhancer extends BeforeEnhancer {
                     methodArguments != null ? methodArguments.length : null);
             return null;
         }
-        if (className.equals("com.jd.jim.cli.protocol.JimCommandBuilder")){
-            return enhanceJimDb2(classLoader,className,object,method,methodArguments);
+        if (className.equals("com.jd.jim.cli.protocol.JimCommandBuilder")) {
+            return enhanceJimDb2(classLoader, className, object, method, methodArguments);
         }
-        if(className.equals("com.jd.jim.cli.redis.jedis.Protocol")){
-            return enhanceJimDb1(classLoader,methodArguments);
+        if (className.equals("com.jd.jim.cli.redis.jedis.Protocol")) {
+            return enhanceJimDb1(classLoader, methodArguments);
         }
 
         return null;
     }
+
     private EnhancerModel enhanceJimDb2(ClassLoader classLoader, String className, Object object, Method method, Object[] methodArguments) throws Exception {
 
         MatcherModel matcherModel = new MatcherModel();
         Object cmd = methodArguments[0];
-        if (null == cmd){
+        if (null == cmd) {
             return null;
-        }else {
-            String cmdName = ReflectUtil.invokeMethod(cmd,"name",new Object[0],false);
-            if (null == cmdName || commandIgnoreSet.contains(cmdName.toUpperCase())){
+        } else {
+            String cmdName = ReflectUtil.invokeMethod(cmd, "name", new Object[0], false);
+            if (null == cmdName || commandIgnoreSet.contains(cmdName.toUpperCase())) {
                 return null;
             }
-            matcherModel.add(JimDbConstant.COMMAND_TYPE_MATCHER_NAME,cmdName);
+            matcherModel.add(JimDbConstant.COMMAND_TYPE_MATCHER_NAME, cmdName);
         }
 
         Object args = methodArguments[2];
-        Object key = ReflectUtil.getFieldValue(args,"firstKey",false);
-        if (key instanceof String){
+        Object key = ReflectUtil.getFieldValue(args, "firstKey", false);
+        if (key instanceof String) {
             matcherModel.add(JimDbConstant.KEY_MATCHER_NAME, key);
-            if (LOGGER.isDebugEnabled()) {
-//                LOGGER.debug("jimdb matchers: {}", JSON.toJSONString(matcherModel));
-            }
             return new EnhancerModel(classLoader, matcherModel);
         }
         return null;
@@ -101,15 +99,16 @@ public class JimDbEnhancer extends BeforeEnhancer {
         if (!args.getClass().isArray() || !(args instanceof byte[][])) {
             return null;
         }
-        String cmd = new String((byte[])command, CHARSET);
-        if (null == cmd || commandIgnoreSet.contains(cmd.toUpperCase())){
+        String cmd = new String((byte[]) command, CHARSET);
+        if (commandIgnoreSet.contains(cmd.toUpperCase())) {
             return null;
         }
+
         List<String> sargs = new ArrayList<String>();
 
-        byte[][] bargs = (byte[][])args;
-        for (int i = 0; i < bargs.length; i++) {
-            sargs.add(new String(bargs[i], CHARSET));
+        byte[][] bargs = (byte[][]) args;
+        for (byte[] barg : bargs) {
+            sargs.add(new String(barg, CHARSET));
         }
 
         String key = null;
@@ -122,13 +121,10 @@ public class JimDbEnhancer extends BeforeEnhancer {
         if (key != null) {
             matcherModel.add(JimDbConstant.KEY_MATCHER_NAME, key);
         }
-        if (LOGGER.isDebugEnabled()) {
-//            LOGGER.debug("jimdb matchers: {}", JSON.toJSONString(matcherModel));
-        }
         return new EnhancerModel(classLoader, matcherModel);
     }
 
-    private static Set<String> commandIgnoreSet = new HashSet<String>(){
+    private static final Set<String> commandIgnoreSet = new HashSet<String>() {
         {
             add("AUTH");
             add("ECHO");

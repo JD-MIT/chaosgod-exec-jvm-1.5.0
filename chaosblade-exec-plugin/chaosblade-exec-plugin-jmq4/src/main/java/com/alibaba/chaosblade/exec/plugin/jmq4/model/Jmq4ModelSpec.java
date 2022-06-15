@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 2:36 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq4ModelSpec extends FrameworkModelSpec implements Jmq4Constant {
 
@@ -34,7 +33,7 @@ public class Jmq4ModelSpec extends FrameworkModelSpec implements Jmq4Constant {
 
     @Override
     public String getShortDesc() {
-        return "jmq4 experiment";
+        return getTarget() + " experiment";
     }
 
     @Override

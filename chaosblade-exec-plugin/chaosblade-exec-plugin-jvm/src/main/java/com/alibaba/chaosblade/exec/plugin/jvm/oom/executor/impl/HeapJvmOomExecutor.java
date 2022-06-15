@@ -49,7 +49,7 @@ public class HeapJvmOomExecutor extends JvmOomExecutor {
         long maxUsed = memoryMXBean.getHeapMemoryUsage().getMax();
         long heapUsed = memoryMXBean.getHeapMemoryUsage().getUsed();
         long left = maxUsed - heapUsed;
-        long count = left / (JvmConstant.ONE_MB * jvmOomConfiguration.getBlock());
+        long count = left / ((long) JvmConstant.ONE_MB * jvmOomConfiguration.getBlock());
         long intervalInMillsecond = 0;
         if (count > 1) {
             intervalInMillsecond = MIN_TIME_COST_FILL_HEAP / count;

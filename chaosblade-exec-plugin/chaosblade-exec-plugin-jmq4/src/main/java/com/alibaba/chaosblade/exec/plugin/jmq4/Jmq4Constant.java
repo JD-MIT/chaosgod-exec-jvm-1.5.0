@@ -1,8 +1,7 @@
 package com.alibaba.chaosblade.exec.plugin.jmq4;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 2:27 下午
+ * @author renguangyin@jd.com
  */
 public interface Jmq4Constant {
 
@@ -16,5 +15,5 @@ public interface Jmq4Constant {
 
     String TOPIC_KEY = "topic";
 
-    String TIMEOUT_EXCEPTION_MSG = "from chaosblade mock timeout";
+    String TIMEOUT_EXCEPTION_MSG = "taishan chaos timeout exception";
 }

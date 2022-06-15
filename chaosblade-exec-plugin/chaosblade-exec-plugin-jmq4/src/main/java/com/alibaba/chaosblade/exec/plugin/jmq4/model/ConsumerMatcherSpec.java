@@ -4,8 +4,7 @@ import com.alibaba.chaosblade.exec.common.model.matcher.BasePredicateMatcherSpec
 import com.alibaba.chaosblade.exec.plugin.jmq4.Jmq4Constant;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 2:43 下午
+ * @author renguangyin@jd.com
  */
 public class ConsumerMatcherSpec extends BasePredicateMatcherSpec implements Jmq4Constant {
 
@@ -16,7 +15,7 @@ public class ConsumerMatcherSpec extends BasePredicateMatcherSpec implements Jmq
 
     @Override
     public String getDesc() {
-        return "";
+        return getName();
     }
 
     @Override

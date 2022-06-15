@@ -20,11 +20,10 @@ import com.alibaba.chaosblade.exec.common.aop.PointCut;
 import com.alibaba.chaosblade.exec.common.aop.matcher.clazz.ClassMatcher;
 import com.alibaba.chaosblade.exec.common.aop.matcher.clazz.NameClassMatcher;
 import com.alibaba.chaosblade.exec.common.aop.matcher.clazz.OrClassMatcher;
-import com.alibaba.chaosblade.exec.common.aop.matcher.clazz.SuperClassMatcher;
 import com.alibaba.chaosblade.exec.common.aop.matcher.method.*;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class JsfProviderPointCut implements PointCut {
 
@@ -32,16 +31,15 @@ public class JsfProviderPointCut implements PointCut {
     public ClassMatcher getClassMatcher() {
         return new OrClassMatcher()
                 // for jsf provider thread pool
-             .or(new NameClassMatcher("com.jd.jsf.gd.server.BaseServerHandler"))
-            .or(new NameClassMatcher("com.jd.jsf.gd.server.ProviderProxyInvoker"));
+                .or(new NameClassMatcher("com.jd.jsf.gd.server.BaseServerHandler"))
+                .or(new NameClassMatcher("com.jd.jsf.gd.server.ProviderProxyInvoker"));
     }
 
     @Override
     public MethodMatcher getMethodMatcher() {
         AndMethodMatcher methodMatcher = new AndMethodMatcher();
-        ParameterMethodMatcher parameterMethodMatcher = new ParameterMethodMatcher(new String[] {
-            "com.jd.jsf.gd.msg.BaseMessage"}, 1,
-            ParameterMethodMatcher.EQUAL);
+        ParameterMethodMatcher parameterMethodMatcher = new ParameterMethodMatcher(
+                new String[]{"com.jd.jsf.gd.msg.BaseMessage"}, 1, ParameterMethodMatcher.EQUAL);
         methodMatcher.and(new NameMethodMatcher("invoke")).and(parameterMethodMatcher);
 
         OrMethodMatcher orMethodMatcher = new OrMethodMatcher();

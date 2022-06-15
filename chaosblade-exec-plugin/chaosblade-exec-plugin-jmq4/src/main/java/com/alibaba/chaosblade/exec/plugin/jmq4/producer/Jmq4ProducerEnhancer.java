@@ -13,8 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author wanyong10
- * @date 2020/10/30 - 4:36 下午
+ * @author renguangyin@jd.com
  */
 public class Jmq4ProducerEnhancer extends BeforeEnhancer implements Jmq4Constant {
 

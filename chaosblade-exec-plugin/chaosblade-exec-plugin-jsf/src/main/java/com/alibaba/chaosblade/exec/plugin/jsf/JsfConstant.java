@@ -19,24 +19,26 @@ package com.alibaba.chaosblade.exec.plugin.jsf;
 import com.alibaba.chaosblade.exec.common.plugin.MethodConstant;
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public interface JsfConstant {
 
     String TIMEOUT_KEY = "timeout";
-    String TIMEOUT_EXCEPTION_MSG = "from chaosblade mock timeout";
 
-    String VERSION_KEY = "version";
-    String APP_KEY = "appname";
+    String TIMEOUT_EXCEPTION_MSG = "taishan chaos timeout exception.";
+
     String SERVICE_KEY = "service";
+
     String METHOD_KEY = MethodConstant.METHOD_MATCHER_NAME;
+
     String ALIAS_KEY = "alias";
-    String GROUP_KEY = "group";
 
     String TARGET_NAME = "jsf";
 
     String CONSUMER_KEY = "consumer";
+
     String PROVIDER_KEY = "provider";
+
     String AND_SYMBOL = ";";
 
 }

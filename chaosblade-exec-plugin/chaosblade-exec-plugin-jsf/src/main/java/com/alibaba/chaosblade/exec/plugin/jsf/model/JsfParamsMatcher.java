@@ -27,8 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author BoYuan Han
- * @create 2020-06-22 14:33
+ * @author renguangyin@jd.com
  */
 public class JsfParamsMatcher implements CustomMatcher {
 
@@ -49,8 +48,7 @@ public class JsfParamsMatcher implements CustomMatcher {
             return false;
         }
         String[] paramsStr = queryString.split(JsfConstant.AND_SYMBOL);
-        List<String> paramsList = new ArrayList<String>(Arrays.asList(paramsStr));
-        return paramsList.contains(originValue);
+        return Arrays.asList(paramsStr).contains(originValue);
     }
 
     @Override

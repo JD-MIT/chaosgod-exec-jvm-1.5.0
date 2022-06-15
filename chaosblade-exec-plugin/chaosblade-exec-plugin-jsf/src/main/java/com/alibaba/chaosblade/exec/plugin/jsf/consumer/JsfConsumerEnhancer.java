@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package com.alibaba.chaosblade.exec.plugin.jsf.consumer;
+
 import com.alibaba.chaosblade.exec.common.aop.EnhancerModel;
 import com.alibaba.chaosblade.exec.common.model.action.delay.BaseTimeoutExecutor;
 import com.alibaba.chaosblade.exec.common.model.action.delay.TimeoutExecutor;
@@ -24,11 +25,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 
 
 /**
- * @author BoYuan Han
+ * @author renguangyin@jd.com
  */
 public class JsfConsumerEnhancer extends JsfEnhancer {
 
@@ -53,9 +53,9 @@ public class JsfConsumerEnhancer extends JsfEnhancer {
                     Constructor con = timeOutExceptionClass.getConstructor(paramTypes);
                     return (Exception) con.newInstance(params);
                 } catch (ClassNotFoundException e) {
-                    LOGGER.error("origin-chaos-jsf", "Can not find " + exceptionClassName, e);
+                    LOGGER.error("origin-chaos-jsf {}", "Can not find " + exceptionClassName, e);
                 } catch (Exception e) {
-                    LOGGER.error("origin-chaos-jsf", "Can not generate " + exceptionClassName, e);
+                    LOGGER.error("origin-chaos-jsf {}", "Can not generate " + exceptionClassName, e);
                 }
                 return new RuntimeException(JsfConstant.TIMEOUT_EXCEPTION_MSG);
             }
@@ -70,7 +70,7 @@ public class JsfConsumerEnhancer extends JsfEnhancer {
     @Override
     protected int getTimeout(String method, Object instance, Object invocation) {
         try {
-            Object consumerConfig = ReflectUtil.getFieldValue(instance,CONSUMER_CONFIG,false);
+            Object consumerConfig = ReflectUtil.getFieldValue(instance, CONSUMER_CONFIG, false);
             if (consumerConfig != null) {
                 return ReflectUtil.invokeMethod(consumerConfig, TIMEOUT_METHOD_NAME, new Object[0], false);
             }
