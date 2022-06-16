@@ -18,7 +18,6 @@ public class MultiPercolateRequestIndex extends AbstractRequestIndex {
 
     @Override
     public List<String> getIndex0(Object target) throws Exception {
-        List list = ReflectUtil.invokeMethod(target, "requests");
-        return indexList(list);
+        return indexList((List) ReflectUtil.invokeMethod(target, "requests"));
     }
 }

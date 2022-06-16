@@ -19,7 +19,6 @@ public class MultiTermVectorsRequestIndex extends AbstractRequestIndex {
 
     @Override
     public List<String> getIndex0(Object target) throws Exception {
-        List list = ReflectUtil.invokeMethod(target, "getRequests");
-        return indexList(list);
+        return indexList((List) ReflectUtil.invokeMethod(target, "getRequests"));
     }
 }

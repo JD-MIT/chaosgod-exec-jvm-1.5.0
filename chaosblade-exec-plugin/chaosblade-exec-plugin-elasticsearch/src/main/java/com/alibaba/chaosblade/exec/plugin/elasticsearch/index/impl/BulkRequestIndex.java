@@ -18,7 +18,6 @@ public class BulkRequestIndex extends AbstractRequestIndex {
 
     @Override
     public List<String> getIndex0(Object target) throws Exception {
-        List requests = ReflectUtil.invokeMethod(target, "requests");
-        return indexList(requests);
+        return indexList((List) ReflectUtil.invokeMethod(target, "requests"));
     }
 }

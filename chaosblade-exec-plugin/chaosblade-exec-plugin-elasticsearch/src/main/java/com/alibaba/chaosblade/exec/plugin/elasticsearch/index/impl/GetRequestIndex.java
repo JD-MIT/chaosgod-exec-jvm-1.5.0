@@ -3,6 +3,7 @@ package com.alibaba.chaosblade.exec.plugin.elasticsearch.index.impl;
 import com.alibaba.chaosblade.exec.plugin.elasticsearch.index.AbstractRequestIndex;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +19,6 @@ public class GetRequestIndex extends AbstractRequestIndex {
 
     @Override
     public List<String> getIndex0(Object target) throws Exception{
-        return Arrays.asList(index(target, "index"));
+        return Collections.singletonList(index(target, "index"));
     }
 }
